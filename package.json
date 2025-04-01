@@ -1,0 +1,23 @@
+{
+  "name": "bot",
+  "module": "src/index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun run ./src/index.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.2.5",
+    "drizzle-kit": "^0.30.5"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.9.1",
+    "chalk": "^5.4.1",
+    "discord.js": "^14.18.0",
+    "dotenv": "^16.4.7",
+    "drizzle-orm": "^0.41.0"
+  }
+}
