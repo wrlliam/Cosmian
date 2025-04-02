@@ -26,3 +26,7 @@ export type Event<K extends keyof ClientEvents> = {
   name: K;
   run: (...args: ClientEvents[K]) => void;
 };
+
+export type Config = {
+
+}

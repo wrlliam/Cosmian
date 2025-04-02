@@ -125,15 +125,13 @@ export default class CoreBot extends Client {
         onlyFiles: true,
       })
     );
-
+    info(`Registering events`);
     for (let i = 0; i < fileList.length; i++) {
       const filePwd = fileList[i];
       const data = (await import(`${process.cwd()}/src/events/${filePwd}`))
         ?.default as Event<keyof ClientEvents>;
       if (!data.name) return;
-
-      console.log;
-
+      success(`Registered event: ${data.name}`)
       this.on(data.name, data.run);
     }
   }
