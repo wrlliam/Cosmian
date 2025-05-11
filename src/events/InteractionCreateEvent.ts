@@ -34,6 +34,16 @@ export default {
         (f) => f.id === interaction.user.id
       ) as GuildMember;
 
+      if (
+        command.adminOnly &&
+        !interaction.member.permissions.has("Administrator")
+      ) {
+        return interaction.reply({
+          ephemeral: true,
+          content:
+            "You are missing the required permissions to use this command.",
+        });
+      }
       command.run({
         args: interaction.options as CommandInteractionOptionResolver,
         client: app,
